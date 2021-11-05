@@ -1,0 +1,20 @@
+# Don't wanna share my secrets 😉
+src/kronos/settings/secrets.py
+
+# ==============================
+# Databases
+# ==============================
+*.sqlite3
+*.pgdump
+
+# ==============================
+# Python crud
+# ==============================
+__pycache__
+/ve*
+
+
+# ==============================
+# Django crud
+# ==============================
+.django_settings_module
