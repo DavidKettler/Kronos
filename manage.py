@@ -6,7 +6,8 @@ import sys
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'src.kronos.settings')
+    # TODO Setting the default to src.kronos.settings.dev but later will use .django_settings_module
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'src.kronos.settings.dev')
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
