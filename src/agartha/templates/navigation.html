@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="transition duration-1000 ease-in-out opacity-100">
+    <div class="sticky top-0 z-40 dark:bg-gray-900 dark:text-gray-100	">
+        <div class="container mx-auto sm:px-6 lg:px-28 md:space-y-8">
+            <nav class="sticky w-full max-w-8xl mx-auto flex-none flex justify-between items-center px-4 md:px-0 py-6">
+                <div class="logo-image cursor-pointer">
+                    <h1 class="font-tenebras text-4xl tracking-widest font-bold">
+                        DAVID&nbsp;KETTLER
+                    </h1>
+                </div>
+                <div class="navigation flex items-end">
+                    <div class="hidden xl:block">
+                        <ul class="flex justify-between items-center">
+                            <li class="ml-10">
+                                <a class="cursor-pointer text-sm font-medium text-secondary">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="ml-10">
+                                <a class="cursor-pointer text-sm font-medium text-secondary">
+                                    About Me
+                                </a>
+                            </li>
+                            <li class="ml-10">
+                                <a class="cursor-pointer text-sm font-medium text-secondary">
+                                    Skills
+                                </a>
+                            </li>
+                            <li class="ml-10">
+                                <a class="cursor-pointer text-sm font-medium text-secondary">
+                                    Work
+                                </a>
+                            </li>
+                            <!-- <li class="ml-10">
+                                <a class="cursor-pointer text-sm font-medium text-secondary">
+                                    Experiments
+                                </a>
+                            </li> -->
+                            <li class="ml-10">
+                                <a class="cursor-pointer text-sm font-medium text-secondary">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>
+{% endblock body %}
