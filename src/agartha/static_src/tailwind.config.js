@@ -49,19 +49,19 @@ module.exports = {
          */
         // '../../**/*.py'
     ],
-    darkMode: false, // or 'media' or 'class'
+    darkMode: 'class', // or 'media' or 'class'
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'tenebras': ['Tenebras'],
+                'montserrat': ['"Montserrat"', 'sans-serif'],
+            }
+        },
     },
     variants: {
         extend: {},
     },
     plugins: [
-        /**
-         * '@tailwindcss/forms' is the forms plugin that provides a minimal styling
-         * for forms. If you don't like it or have own styling for forms,
-         * comment the line below to disable '@tailwindcss/forms'.
-         */
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),

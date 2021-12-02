@@ -82,12 +82,8 @@ WSGI_APPLICATION = 'src.kronos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kronos',
-        'USER': 'dkettler',
-        'PASSWORD': 'Kettlerd448',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'kronos.sqlite3',
     }
 }
 
@@ -137,3 +133,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Tailwind settings
 TAILWIND_APP_NAME = 'src.agartha'
+# I don't care for the browser-sync
+TAILWIND_DEV_MODE = False

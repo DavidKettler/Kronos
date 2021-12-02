@@ -1,19 +1,59 @@
-{% load static tailwind_tags %}
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-    <title>Django Tailwind</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		{% tailwind_css %}
-	</head>
+{% load static %}
+{% load tailwind_tags %}
 
-	<body class="bg-gray-50 font-serif leading-normal tracking-normal">
-		<div class="container mx-auto">
-			<section class="flex items-center justify-center h-screen">
-				<h1 class="text-5xl">Django + Tailwind = ❤️</h1>
-			</section>
-		</div>
-	</body>
+<!DOCTYPE html>
+<html lang="en" class="dark">
+    <head>
+        {% block head %}
+            <!-- Meta tags -->
+            <meta charset="utf-8">
+            <meta name="Description" CONTENT="Author: David A. Kettler, Illustrator: David A. Kettler, Category: Portfolio">
+            <meta name="google-site-verification" content="+nxGUDJ4QpAZ5l9Bsjdi102tLVC21AIh5d1Nl23908vVuFHs34="/>
+            <meta name="robots" content="index, follow">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+            {% block meta %}
+            {% endblock meta %}
+
+            <!-- Fonts -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,900;1,400&display=swap" rel="stylesheet">
+
+            <!-- Title -->
+            <title>{% block title %}David A. Kettler Portfolio{% endblock title %}</title>
+            <!-- Favicon Emojified -->
+			<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤯</text></svg>">
+
+            {% block css %}
+				<!-- Tailwind CSS files -->
+                {% tailwind_preload_css v='0.1' %}
+				{% tailwind_css v='0.1' %}
+
+				{% comment %}
+                <link rel="stylesheet" href="{% static '' %}" type="text/css">
+				{% endcomment %}
+            {% endblock css %}
+
+            {% block extrahead %}
+            {% endblock extrahead %}
+
+        {% endblock head %}
+    </head>
+    <body {% block "body-attrs" %}{% endblock %} class="bg-white dark:bg-black font-montserrat antialiased text-gray-600 min-h-full flex flex-col">
+        {% block body %}
+        {% endblock body %}
+
+        {% block bodyjs %}
+            <!-- Required JS -->
+
+            {% comment %}
+            <script type="text/javascript" src=""></script>
+			{% endcomment %}
+
+            {% block extrajs %}
+            {% endblock extrajs %}
+
+        {% endblock bodyjs %}
+    </body>
 </html>

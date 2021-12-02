@@ -7,7 +7,7 @@ def dummy(request):
 
 class homepage(View):
     context = {}
-    template_name = 'base.html'
+    template_name = 'navigation.html'
 
     def get(self, request):
         return render(request, self.template_name, self.context)
