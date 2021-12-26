@@ -1,5 +1,4 @@
 from src.kronos.settings import *
-
 from src.kronos.settings import secrets
 
 # Allowed hosts for Dev enviornment 
@@ -25,3 +24,5 @@ CACHES = {
 
 # We want debug mode
 DEBUG = True
+
+STATIC_URL = '/src/agartha/static/'
