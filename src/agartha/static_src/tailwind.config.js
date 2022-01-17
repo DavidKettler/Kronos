@@ -6,15 +6,7 @@
  */
 
 module.exports = {
-    /**
-     * Stylesheet generation mode.
-     *
-     * Set mode to "jit" if you want to generate your styles on-demand as you author your templates;
-     * Set mode to "aot" if you want to generate the stylesheet in advance and purge later (aka legacy mode).
-     */
-    mode: "jit",
-
-    purge: [
+    content: [
         /**
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
          */
@@ -49,7 +41,7 @@ module.exports = {
          */
         // '../../**/*.py'
     ],
-    darkMode: 'class', // or 'media' or 'class'
+    darkMode: 'class',
     theme: {
         extend: {
             fontFamily: {
@@ -57,9 +49,6 @@ module.exports = {
                 'montserrat': ['"Montserrat"', 'sans-serif'],
             }
         },
-    },
-    variants: {
-        extend: {},
     },
     plugins: [
         require('@tailwindcss/forms'),

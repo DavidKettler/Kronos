@@ -1,0 +1,61 @@
+version: "3.8"
+
+x-app: &default-app
+  build:
+    context: .
+    dockerfile: ./Dockerfile
+    target: local
+  environment:
+    - POSTGRES_PASSWORD=pg_kronos
+  volumes:
+    - .:/app/Kronos
+  depends_on:
+    - postgres
+  restart: "unless-stopped"
+  links:
+    - postgres
+
+services:
+  # nginx:
+  #   restart: always
+  #   build: ./nginx/
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - web-static:/www/static
+  #   links:
+  #     - web:web
+  
+  db:
+    container_name: postgres
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_PASSWORD=pg_kronos
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    restart: always
+
+  web:
+    <<: *default-app
+    command: ". ve/bin/activate && ./manage.py runserver 0.0.0.0:8000"
+    # command: /usr/local/bin/gunicorn docker_django.wsgi:application -w 2 -b :8000
+    links:
+      - postgres
+    ports:
+      - "8000:8000"
+
+  tailwind:
+    <<: *default-app
+    command: ". ve/bin/activate && ./manage.py tailwind start"
+    ports:
+      - "8383:8383"
+    tty: true
+
+volumes:
+  pgdata: null
+
+networks:
+  default:
+    name: kronos
